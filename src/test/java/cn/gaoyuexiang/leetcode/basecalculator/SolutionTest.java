@@ -12,7 +12,7 @@ public class SolutionTest {
 
 	@Test
 	public void should_get_right_answer() throws Exception {
-		String expression = "9-(5-(2+2))";
+		String expression = "(7)+1";
 		int result = solution.calculate(expression);
 		assertEquals(result, 8);
 	}
@@ -22,5 +22,12 @@ public class SolutionTest {
 		String experssion = "2+3+5-4";
 		int result = solution.calculate(experssion);
 		assertThat(result, is(6));
+	}
+
+	@Test
+	public void multiplace_number() throws Exception {
+		String expression = "24-( 8 - 4)";
+		int result = solution.calculate(expression);
+		assertEquals(result, 20);
 	}
 }

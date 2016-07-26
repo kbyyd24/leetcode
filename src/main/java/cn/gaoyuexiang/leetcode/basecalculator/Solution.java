@@ -29,11 +29,22 @@ public class Solution {
 
 	private int getResult(char[] chars) {
 		int result = 0;
+		int number = -1;
 		Stack<Character> signs = new Stack<>();
 		Stack<Integer> results = new Stack<>();
 		for (char aChar : chars) {
-			if (aChar == ' ') continue;
+			if (aChar == ' ') {
+				if (number != -1) {
+					result = calc(result, number, signs);
+					number = -1;
+				}
+				continue;
+			}
 			if (aChar == '+' || aChar == '-') {
+				if (number != -1) {
+					result = calc(result, number, signs);
+					number = -1;
+				}
 				signs.push(aChar);
 				continue;
 			}
@@ -44,11 +55,19 @@ public class Solution {
 				continue;
 			}
 			if (aChar == ')') {
+				if (number != -1) {
+					result = calc(result, number, signs);
+					number = -1;
+				}
 				signs.pop();
 				result = calc(results.pop(), result, signs);
 				continue;
 			}
-			result = calc(result, Character.getNumericValue(aChar), signs);
+			if (number == -1) number = 0;
+			number = number * 10 + Character.getNumericValue(aChar);
+		}
+		if (number != -1) {
+			result = calc(result, number, signs);
 		}
 		return result;
 	}
