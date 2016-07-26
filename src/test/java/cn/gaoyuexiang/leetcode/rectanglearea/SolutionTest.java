@@ -15,4 +15,12 @@ public class SolutionTest {
 		int res = solution.computeArea(A, B, C, D, E, F, G, H);
 		assertEquals(res, 3);
 	}
+
+	@Test
+	public void repeat_coverage() throws Exception {
+		int A = -1, B = 0, C = 4, D = 2,
+						E = 0, F = -2, G = 3, H = 3;
+		int res = solution.computeArea(A, B, C, D, E, F, G, H);
+		assertEquals(res, 19);
+	}
 }
