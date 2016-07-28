@@ -1,4 +1,4 @@
-package cn.gaoyuexiang.leetcode.mergesortlist;
+package cn.gaoyuexiang.leetcode.mergesortedlist;
 
 import cn.gaoyuexiang.leetcode.common.ListNode;
 import org.junit.Test;
