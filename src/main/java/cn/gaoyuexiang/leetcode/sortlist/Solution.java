@@ -1,6 +1,8 @@
 package cn.gaoyuexiang.leetcode.sortlist;
 
 
+import cn.gaoyuexiang.leetcode.common.ListNode;
+
 /**
  * issues : #5
  *

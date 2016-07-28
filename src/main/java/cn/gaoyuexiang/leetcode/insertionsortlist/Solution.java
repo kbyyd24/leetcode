@@ -1,5 +1,7 @@
 package cn.gaoyuexiang.leetcode.insertionsortlist;
 
+import cn.gaoyuexiang.leetcode.common.ListNode;
+
 /**
  * issues : #4
  *

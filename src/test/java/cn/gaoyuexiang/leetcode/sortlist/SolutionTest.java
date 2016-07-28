@@ -1,5 +1,6 @@
 package cn.gaoyuexiang.leetcode.sortlist;
 
+import cn.gaoyuexiang.leetcode.common.ListNode;
 import org.junit.Test;
 
 public class SolutionTest {
