@@ -40,17 +40,23 @@ public class Solution {
 	public List<String> binaryTreePaths(TreeNode root) {
 		if (root == null) return new ArrayList<>();
 		List<String> ret = new ArrayList<>();
-		String val = Integer.toString(root.val);
 		if (root.left == null && root.right == null) {
-			ret.add(val);
+			ret.add(Integer.toString(root.val));
 			return ret;
 		}
-		List<String> sub = new ArrayList<>();
-		if (root.left != null) sub.addAll(binaryTreePaths(root.left));
-		if (root.right != null) sub.addAll(binaryTreePaths(root.right));
-		sub.forEach(path -> {
-			ret.add(val + "->" + path);
-		});
+		traverse(root, Integer.toString(root.val), ret);
 		return ret;
+	}
+
+	private void traverse(TreeNode root, String path, List<String> ret) {
+		if (root == null) return;
+		if (root.left == null && root.right == null) {
+			ret.add(path);
+			return;
+		}
+		if (root.left != null)
+			traverse(root.left, path + "->" + root.left.val, ret);
+		if (root.right != null)
+			traverse(root.right, path + "->" + root.right.val, ret);
 	}
 }
