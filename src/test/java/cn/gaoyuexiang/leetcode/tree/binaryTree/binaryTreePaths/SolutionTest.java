@@ -1,4 +1,4 @@
-package cn.gaoyuexiang.leetcode.tree.binaryTreePaths;
+package cn.gaoyuexiang.leetcode.tree.binaryTree.binaryTreePaths;
 
 import cn.gaoyuexiang.leetcode.common.TreeNode;
 import org.junit.Test;
