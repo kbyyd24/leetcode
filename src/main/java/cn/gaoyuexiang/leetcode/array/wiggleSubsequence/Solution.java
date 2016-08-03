@@ -1,5 +1,12 @@
 package cn.gaoyuexiang.leetcode.array.wiggleSubsequence;
 
+
+/**
+ *
+ * issues : #14
+ *
+ */
+
 public class Solution {
 	public int wiggleMaxLength(int[] nums) {
 		if (nums == null || nums.length == 0) return 0;
