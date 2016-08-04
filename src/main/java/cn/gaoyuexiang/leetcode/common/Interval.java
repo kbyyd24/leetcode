@@ -3,7 +3,6 @@ package cn.gaoyuexiang.leetcode.common;
 public class Interval {
 	public int start;
 	public int end;
-	Interval() {}
 	public Interval(int s, int e) {
 		this.start = s;
 		this.end = e;
