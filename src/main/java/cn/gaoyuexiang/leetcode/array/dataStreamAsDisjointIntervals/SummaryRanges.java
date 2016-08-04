@@ -7,39 +7,49 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class SummaryRanges {
-	private List<Integer> vals;
+	private List<Interval> intervals;
 
 	public SummaryRanges() {
-		vals = new ArrayList<>();
+		intervals = new ArrayList<>();
 	}
 
 	public void addNum(int val) {
-		int n = vals.size();
-		if (n == 0) {
-			vals.add(val);
+		if (intervals.size() == 0) {
+			intervals.add(new Interval(val, val));
 			return;
 		}
+		boolean isFound = false;
+		int n = intervals.size();
 		for (int i = 0; i < n; i++) {
-			if (val == vals.get(i)) return;
-			if (val < vals.get(i)) {
-				vals.add(i, val);
+			Interval interval = intervals.get(i);
+			if (val < interval.start - 1) {
+				if (!isFound) intervals.add(i, new Interval(val, val));
 				return;
 			}
+			if (val == interval.start - 1) {
+				if (isFound) {
+					intervals.get(i - 1).end = interval.end;
+					intervals.remove(i);
+					return;
+				}
+				interval.start = val;
+				return;
+			}
+			if (val <= interval.end) return;
+			if (val == interval.end + 1) {
+				if (i + 1 == n) {
+					interval.end = val;
+					return;
+				}
+				isFound = true;
+				interval.end = val;
+			}
 		}
-		vals.add(val);
+		if (!isFound)
+			intervals.add(new Interval(val, val));
 	}
 
 	public List<Interval> getIntervals() {
-		LinkedList<Interval> intervals = new LinkedList<>();
-		vals.forEach(val -> {
-			if (intervals.size() == 0) intervals.addLast(new Interval(val, val));
-			else {
-				int end = intervals.getLast().end;
-				if (val == end);
-				else if (val == end + 1) intervals.getLast().end++;
-				else intervals.addLast(new Interval(val, val));
-			}
-		});
 		return intervals;
 	}
 
