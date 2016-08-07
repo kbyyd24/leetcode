@@ -11,8 +11,9 @@ public class Solution {
     if (nums.length < 2) return nums;
     int length = nums.length;
     for (int i = 0; i < length - 1; i++) {
+      int diff = target - nums[i];
       for (int j = i + 1; j < length; j++) {
-        if (target == nums[i] + nums[j])
+        if (diff == nums[j])
           return new int[]{i, j};
       }
     }
