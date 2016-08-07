@@ -10,9 +10,9 @@ public class SolutionTest {
 
   @Test
   public void should_return_an_array() throws Exception {
-    int[] nums = {11, 2, 15, 7};
-    int target = 9;
-    int[] ret = {1, 3};
+    int[] nums = {3, -3, 9, 2, 4};
+    int target = 6;
+    int[] ret = {1, 2};
     int[] result = solution.twoSum(nums, target);
     assertArrayEquals(result, ret);
   }
